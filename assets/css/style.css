@@ -1,0 +1,490 @@
+/* -----------------------------------------------------------
+   1. Tokens
+----------------------------------------------------------- */
+.ti-wrap {
+	--ti-accent:        #0f9d8f;
+	--ti-accent-dark:   #0b7e73;
+	--ti-accent-light:  #e6f6f4;
+	--ti-ink:           #1d2327;
+	--ti-ink-soft:      #4b5257;
+	--ti-muted:         #7c8489;
+	--ti-border:        #e3e6e8;
+	--ti-surface:       #ffffff;
+	--ti-canvas:        #f6f7f7;
+	--ti-danger:        #c0392b;
+	--ti-danger-dark:   #9d3223;
+	--ti-radius:        10px;
+	--ti-radius-sm:     6px;
+	--ti-shadow:        0 1px 2px rgba(16, 24, 32, 0.04), 0 8px 24px -12px rgba(16, 24, 32, 0.12);
+	--ti-shadow-sm:      0 1px 2px rgba(16, 24, 32, 0.06);
+
+	max-width: 1180px;
+	margin: 24px auto 60px;
+	color: var(--ti-ink);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.ti-wrap * {
+	box-sizing: border-box;
+}
+
+/* -----------------------------------------------------------
+   2. Header
+----------------------------------------------------------- */
+.ti-header {
+	position: relative;
+	padding: 32px 36px;
+	margin: 0 0 24px;
+	background: linear-gradient(135deg, #0d3b36 0%, #0f9d8f 100%);
+	border-radius: var(--ti-radius);
+	box-shadow: var(--ti-shadow);
+	overflow: hidden;
+}
+
+.ti-header::after {
+	content: "";
+	position: absolute;
+	top: -60px;
+	right: -60px;
+	width: 220px;
+	height: 220px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.06);
+	pointer-events: none;
+}
+
+.ti-header h1 {
+	margin: 0 0 6px;
+	padding: 0;
+	font-size: 26px;
+	font-weight: 650;
+	letter-spacing: -0.01em;
+	color: #ffffff;
+	line-height: 1.25;
+}
+
+.ti-header p {
+	margin: 0;
+	max-width: 560px;
+	font-size: 14px;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.82);
+}
+
+/* -----------------------------------------------------------
+   3. Tabs
+----------------------------------------------------------- */
+.ti-tabs.nav-tab-wrapper {
+	display: inline-flex;
+	gap: 4px;
+	padding: 4px;
+	margin: 0 0 20px;
+	background: var(--ti-canvas);
+	border: 1px solid var(--ti-border);
+	border-radius: 999px;
+	line-height: normal;
+}
+
+.ti-tabs .nav-tab {
+	border: none;
+	background: transparent;
+	margin: 0;
+	padding: 8px 18px;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--ti-ink-soft);
+	border-radius: 999px;
+	transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.ti-tabs .nav-tab:hover {
+	color: var(--ti-ink);
+	background: rgba(15, 157, 143, 0.08);
+}
+
+.ti-tabs .nav-tab:focus {
+	box-shadow: 0 0 0 2px var(--ti-surface), 0 0 0 4px var(--ti-accent);
+	outline: none;
+}
+
+.ti-tabs .nav-tab-active,
+.ti-tabs .nav-tab-active:hover {
+	color: #ffffff;
+	background: var(--ti-accent);
+	box-shadow: var(--ti-shadow-sm);
+}
+
+/* -----------------------------------------------------------
+   4. Empty state
+----------------------------------------------------------- */
+.ti-empty {
+	padding: 64px 24px;
+	text-align: center;
+	background: var(--ti-surface);
+	border: 1px dashed var(--ti-border);
+	border-radius: var(--ti-radius);
+}
+
+.ti-empty p {
+	margin: 0;
+	font-size: 15px;
+	color: var(--ti-muted);
+}
+
+/* -----------------------------------------------------------
+   5. Bulk actions bar
+----------------------------------------------------------- */
+.ti-bulk-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 14px 20px;
+	margin: 0 0 -1px;
+	background: var(--ti-surface);
+	border: 1px solid var(--ti-border);
+	border-radius: var(--ti-radius) var(--ti-radius) 0 0;
+}
+
+.ti-bulk-actions label {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--ti-ink-soft);
+}
+
+.ti-bulk-actions input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
+	border-radius: 4px;
+	border-color: var(--ti-border);
+}
+
+.ti-bulk-actions .button-primary,
+#ti-bulk-delete {
+	background: var(--ti-danger);
+	border-color: var(--ti-danger);
+	box-shadow: none;
+	font-weight: 600;
+	letter-spacing: 0.01em;
+	border-radius: var(--ti-radius-sm);
+	padding: 4px 16px;
+	height: auto;
+	line-height: 2.15;
+	transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.ti-bulk-actions .button-primary:hover,
+#ti-bulk-delete:hover {
+	background: var(--ti-danger-dark);
+	border-color: var(--ti-danger-dark);
+}
+
+.ti-bulk-actions .button-primary:active,
+#ti-bulk-delete:active {
+	transform: translateY(1px);
+}
+
+/* -----------------------------------------------------------
+   6. Table
+----------------------------------------------------------- */
+.ti-image-table.widefat {
+	border: 1px solid var(--ti-border);
+	border-radius: 0 0 var(--ti-radius) var(--ti-radius);
+	overflow: hidden;
+	box-shadow: var(--ti-shadow);
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+/* When there's no bulk bar above (used tab), round all corners */
+.ti-bulk-form:not(:has(.ti-bulk-actions)) .ti-image-table.widefat {
+	border-radius: var(--ti-radius);
+}
+
+.ti-image-table thead th {
+	background: var(--ti-canvas);
+	border-bottom: 1px solid var(--ti-border);
+	padding: 12px 16px;
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--ti-muted);
+}
+
+.ti-image-table tbody tr {
+	background: var(--ti-surface);
+	transition: background-color 0.12s ease;
+}
+
+
+.ti-image-table tbody tr:hover {
+	background: var(--ti-accent-light);
+}
+
+.ti-image-table tbody td,
+.ti-image-table tbody th.check-column {
+	padding: 12px 16px;
+	border-bottom: 1px solid var(--ti-border);
+	vertical-align: middle;
+}
+
+.ti-image-table tbody tr:last-child td,
+.ti-image-table tbody tr:last-child th {
+	border-bottom: none;
+}
+
+.ti-image-table th.check-column {
+	width: 36px;
+	text-align: center;
+}
+
+.ti-image-table .image-checkbox {
+	width: 16px;
+	height: 16px;
+	border-radius: 4px;
+	border-color: var(--ti-border);
+}
+
+.ti-image-table strong {
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--ti-ink);
+}
+
+.ti-image-table small {
+	font-size: 12px;
+	color: var(--ti-muted);
+}
+
+/* -----------------------------------------------------------
+   7. Thumbnails
+----------------------------------------------------------- */
+.ti-image-cell {
+	width: 72px;
+}
+
+.ti-thumbnail {
+	display: block;
+	width: 56px;
+	height: 56px;
+	object-fit: cover;
+	border-radius: var(--ti-radius-sm);
+	border: 1px solid var(--ti-border);
+	box-shadow: var(--ti-shadow-sm);
+	background: var(--ti-canvas);
+}
+
+/* -----------------------------------------------------------
+   8. Usage list ("Used In")
+----------------------------------------------------------- */
+.ti-usage-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.ti-usage-list li {
+	font-size: 13px;
+}
+
+.ti-usage-list a {
+	color: var(--ti-accent-dark);
+	font-weight: 500;
+	text-decoration: none;
+}
+
+.ti-usage-list a:hover {
+	text-decoration: underline;
+}
+
+.ti-usage-list small {
+	margin-left: 4px;
+	padding: 1px 8px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	color: var(--ti-accent-dark);
+	background: var(--ti-accent-light);
+	border-radius: 999px;
+}
+
+.ti-image-table td em {
+	font-size: 13px;
+	color: var(--ti-muted);
+	font-style: normal;
+}
+/* Extra usage locations are hidden by default */
+.ti-usage-extra {
+	display: none;
+}
+
+/* Shown after clicking "+ X more locations" */
+.ti-usage-extra.is-visible {
+	display: list-item;
+}
+
+/* Usage expand / collapse button */
+.ti-toggle-usages {
+	display: inline-flex;
+	align-items: center;
+	margin-top: 8px;
+	padding: 0;
+	background: transparent;
+	border: none;
+	color: var(--ti-accent-dark);
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.5;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.ti-toggle-usages:hover {
+	color: var(--ti-accent);
+	text-decoration: underline;
+}
+
+.ti-toggle-usages:focus {
+	outline: none;
+	box-shadow: 0 0 0 2px var(--ti-surface), 0 0 0 4px var(--ti-accent);
+	border-radius: 3px;
+}
+/* -----------------------------------------------------------
+   9. Delete action (unused tab)
+----------------------------------------------------------- */
+.ti-delete-single.button-link-delete {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 12px;
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--ti-danger);
+	border: 1px solid rgba(192, 57, 43, 0.35);
+	border-radius: var(--ti-radius-sm);
+	text-decoration: none;
+	transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.ti-delete-single.button-link-delete:hover {
+	color: #ffffff;
+	background: var(--ti-danger);
+	border-color: var(--ti-danger);
+}
+
+.ti-delete-single.button-link-delete:focus {
+	box-shadow: 0 0 0 2px var(--ti-surface), 0 0 0 4px var(--ti-danger);
+	outline: none;
+}
+
+/* -----------------------------------------------------------
+   10. Pagination
+----------------------------------------------------------- */
+.ti-wrap .tablenav {
+	margin-top: 18px;
+}
+
+.ti-wrap .tablenav-pages {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.ti-wrap .tablenav-pages .pagination-links {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 4px;
+	background: var(--ti-surface);
+	border: 1px solid var(--ti-border);
+	border-radius: 999px;
+	box-shadow: var(--ti-shadow-sm);
+}
+
+.ti-wrap .tablenav-pages a,
+.ti-wrap .tablenav-pages span.current,
+.ti-wrap .tablenav-pages span.dots {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 30px;
+	height: 30px;
+	padding: 0 6px;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--ti-ink-soft);
+	border: none;
+	border-radius: 999px;
+	background: transparent;
+}
+
+.ti-wrap .tablenav-pages a:hover {
+	background: var(--ti-accent-light);
+	color: var(--ti-accent-dark);
+}
+
+.ti-wrap .tablenav-pages span.current {
+	color: #ffffff;
+	background: var(--ti-accent);
+}
+
+/* -----------------------------------------------------------
+   11. Responsive
+----------------------------------------------------------- */
+@media (max-width: 782px) {
+	.ti-wrap {
+		margin: 12px 8px 40px;
+	}
+
+	.ti-header {
+		padding: 22px 20px;
+	}
+
+	.ti-header h1 {
+		font-size: 21px;
+	}
+
+	.ti-bulk-actions {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.ti-image-table thead {
+		display: none;
+	}
+
+	.ti-image-table,
+	.ti-image-table tbody,
+	.ti-image-table tr,
+	.ti-image-table td,
+	.ti-image-table th.check-column {
+		display: block;
+		width: 100%;
+	}
+
+	.ti-image-table tr {
+		padding: 12px 16px;
+	}
+
+	.ti-image-table td,
+	.ti-image-table th.check-column {
+		border-bottom: none;
+		padding: 4px 0;
+	}
+}
+
+/* -----------------------------------------------------------
+   12. Reduced motion
+----------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+	.ti-wrap * {
+		transition: none !important;
+	}
+}
